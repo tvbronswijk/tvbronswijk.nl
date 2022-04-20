@@ -1,6 +1,3 @@
-import FaviconsWebpackPlugin from 'favicons-webpack-plugin'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -39,6 +36,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    'nuxt-rfg-icon',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
   ],
@@ -51,36 +49,12 @@ export default {
     // Options
   },
 
+  'rfg-icon': {
+    masterPicture: './icon.svg',
+    static: false,
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    plugins: [
-      new HtmlWebpackPlugin({
-        minify: false,
-      }),
-      new FaviconsWebpackPlugin({
-        logo: './icon.svg',
-        prefix: '/static',
-        mode: 'webapp',
-        devMode: 'light',
-        inject: true,
-        favicons: {
-          appName: 'tvbronswijk.nl',
-          appDescription: "Tobi van Bronswijk's resume",
-          developerName: 'Tobi van Bronswijk',
-          developerURL: null,
-          background: '#fff',
-          theme_color: '#fff',
-          icons: {
-            android: false,
-            appleIcon: false,
-            appleStartup: false,
-            windows: true,
-            firefox: true,
-            coast: false,
-            yandex: false,
-          },
-        },
-      }),
-    ],
   },
 }
