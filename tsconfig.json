@@ -10,12 +10,13 @@
     "strict": true,
     "noEmit": true,
     "experimentalDecorators": true,
+    "noImplicitThis": false,
     "baseUrl": ".",
     "paths": {
       "~/*": ["./*"],
       "@/*": ["./*"]
     },
-    "types": ["@nuxt/types", "@nuxt/content", "@types/node"]
+    "types": ["@nuxt/types", "@nuxt/content", "@nuxt/image", "@types/node"]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]
 }
