@@ -4,14 +4,19 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
+    "build": "NODE_OPTIONS=\"--openssl-legacy-provider\" nuxt build",
+    "build:analyze": "ANALYZE=true NODE_OPTIONS=\"--openssl-legacy-provider\" nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "NODE_OPTIONS=\"--openssl-legacy-provider\" nuxt generate",
+    "generate:analyze": "ANALYZE=true NODE_OPTIONS=\"--openssl-legacy-provider\" nuxt generate",
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:js && yarn lint:prettier",
     "lintfix": "prettier --write --list-different . && yarn lint:js --fix",
-    "test": "jest"
+    "test": "jest",
+    "perf:audit": "npx lighthouse http://localhost:3000 --view",
+    "perf:deps": "npx depcheck",
+    "perf:images": "find static/images -name '*.jpg' -o -name '*.png' | xargs ls -lah"
   },
   "dependencies": {
     "@nuxt/content": "^1.15.1",
