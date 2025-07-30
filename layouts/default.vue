@@ -1,11 +1,6 @@
 <template>
   <div class="m-auto flex h-screen w-auto flex-row">
-    <client-only>
-      <Sidebar class="flex-grow md:w-1/6" />
-      <template #placeholder>
-        <div class="flex-grow md:w-1/6 bg-gray-100 animate-pulse"></div>
-      </template>
-    </client-only>
+    <Sidebar class="flex-grow md:w-1/6" />
     <div class="flex-grow md:w-5/6">
       <Nuxt />
     </div>

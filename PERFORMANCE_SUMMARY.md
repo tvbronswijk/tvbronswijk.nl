@@ -37,7 +37,7 @@ Successfully optimized the tvbronswijk.nl Nuxt.js application for maximum perfor
 3. **Resource preloading**: Critical images and fonts
 4. **DNS prefetching**: External domains
 5. **Component optimization**: SVG icons extracted to reusable component
-6. **Lazy loading**: Client-side rendering with placeholders
+6. **Lazy loading**: Async component loading for better performance
 
 ## 🛠 Technical Implementations
 
@@ -91,7 +91,7 @@ sharp -i profile.jpg -o profile-small.webp -f webp -q 75 resize 400 400
 - **Bundle**: Code-split with vendor chunking
 - **CSS**: Purged to 7KB total
 - **Build**: Modern + legacy builds with compression
-- **Loading**: Lazy components with service worker caching
+- **Loading**: Async component loading for better performance
 
 ## 🎨 Component Optimizations
 
@@ -152,7 +152,7 @@ yarn perf:audit
 - ✅ **Modern JavaScript**: ES6+ for capable browsers
 - ✅ **CSS optimization**: 99% reduction through JIT + purging
 - ✅ **Component efficiency**: SVG icons moved to reusable component
-- ✅ **Lazy loading**: Non-critical components loaded asynchronously
+- ✅ **Lazy loading**: Async component loading (Sidebar component)
 - ✅ **Resource optimization**: Preloading, prefetching, caching
 - ✅ **Build performance**: Modern dual-bundle strategy
 - ✅ **Service worker**: Static asset caching (created but needs integration)
