@@ -8,7 +8,7 @@ Successfully optimized the tvbronswijk.nl Nuxt.js application for maximum perfor
 ### 1. Image Optimization (99.7% size reduction)
 - **Original profile.jpg**: 3.6MB → **Optimized**: 9KB-693KB
 - **WebP format**: 467KB (87% reduction from original)
-- **Small responsive WebP**: 9KB (99.7% reduction)
+- **Small responsive WebP**: 6KB (99.8% reduction, no cropping)
 - **Optimized JPEG fallback**: 693KB (81% reduction)
 
 ### 2. Bundle Optimization Results
@@ -50,7 +50,7 @@ sharp -i profile.jpg -o profile-optimized.jpg -f jpeg -q 80
 sharp -i profile.jpg -o profile.webp -f webp -q 80
 
 # Small responsive WebP (75% quality, 400x400)
-sharp -i profile.jpg -o profile-small.webp -f webp -q 75 resize 400 400
+sharp -i profile.jpg -o profile-small-fit.webp -f webp -q 75 resize 400 400 --fit inside
 ```
 
 ### Performance Scripts Added
@@ -110,7 +110,7 @@ sharp -i profile.jpg -o profile-small.webp -f webp -q 75 resize 400 400
 ### Image Implementation
 ```vue
 <picture class="mx-auto w-full rounded-full border-2 border-blue-300 block">
-  <source srcset="/images/profile-small.webp 400w, /images/profile.webp 800w" 
+  <source srcset="/images/profile-small-fit.webp 400w, /images/profile.webp 800w" 
           sizes="(max-width: 768px) 133px, (max-width: 1024px) 200px, 267px"
           type="image/webp" />
   <source srcset="/images/profile-optimized.jpg 800w" 

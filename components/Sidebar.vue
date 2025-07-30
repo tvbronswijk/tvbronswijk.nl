@@ -15,7 +15,7 @@
         <picture class="mx-auto w-full rounded-full border-2 border-blue-300 block">
           <!-- WebP format for modern browsers -->
           <source 
-            srcset="/images/profile-small.webp 400w, /images/profile.webp 800w" 
+            srcset="/images/profile-small-fit.webp 400w, /images/profile.webp 800w" 
             sizes="(max-width: 768px) 133px, (max-width: 1024px) 200px, 267px"
             type="image/webp"
           />
