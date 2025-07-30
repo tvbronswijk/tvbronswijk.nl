@@ -13,49 +13,14 @@
 </template>
 
 <script setup lang="ts">
-import Vue from 'vue'
-
-interface Metadata {
-  title: string
-  description: string
-  type: string
-  website: string
-  image: string
-}
-
-interface AsyncData {
-  metadata: Metadata
-}
-
-export default Vue.extend({
-  async asyncData({ $content, params }): Promise<AsyncData> {
-    const resp = await $content('index/metadata', params).fetch()
-
-    return {
-      metadata: resp as any as Metadata,
-    }
-  },
-
-  head() {
-    return {
-      title: this.metadata.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.metadata.description,
-        },
-        { hid: 'og:title', name: 'og:title', content: this.metadata.title },
-        {
-          hid: 'og:description',
-          name: 'og:description',
-          content: this.metadata.description,
-        },
-        { hid: 'og:type', name: 'og:type', content: this.metadata.type },
-        { hid: 'og:url', name: 'og:url', content: this.metadata.website },
-        { hid: 'og:image', name: 'og:image', content: this.metadata.image },
-      ],
-    }
-  },
+// Use the new SEO composables with static data for now
+useSeoMeta({
+  title: 'Tobi van Bronswijk',
+  description: 'Software Developer for .NET Core and .NET Framework.',
+  ogTitle: 'Tobi van Bronswijk',
+  ogDescription: 'Software Developer for .NET Core and .NET Framework.',
+  ogType: 'website',
+  ogUrl: 'https://tvbronswijk.nl/',
+  ogImage: 'https://tvbronswijk.nl/images/profile-optimized.jpg'
 })
 </script>

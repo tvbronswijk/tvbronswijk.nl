@@ -108,12 +108,12 @@
       <footer class="w-full text-right">
         Made with
         <a
-          href="https://nuxtjs.org/"
+          href="https://nuxt.com/"
           target="_blank"
           rel="noreferrer"
           name="NuxtJS"
           class="font-bold text-green-400"
-          >NuxtJS</a
+          >Nuxt</a
         >
         and
         <a
@@ -125,21 +125,15 @@
           >TailwindCSS</a
         >
         <br />
-        ©2022 Tobi van Bronswijk
+        ©2025 Tobi van Bronswijk
       </footer>
     </section>
   </aside>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import SocialIcon from './SocialIcon.vue'
-
-export default Vue.extend({
-  components: {
-    SocialIcon
-  }
-})
+<script setup lang="ts">
+// Components are auto-imported in Nuxt 3
+// No need for explicit imports or component registration
 </script>
 
 <style scoped>

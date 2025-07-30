@@ -9,13 +9,22 @@
   </svg>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
+<script setup lang="ts">
 interface IconData {
   viewBox: string
   path: string
 }
+
+interface Props {
+  icon: 'github' | 'linkedin' | 'twitter'
+  size?: string
+  color?: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  size: 'h-8 w-8',
+  color: 'text-blue-900'
+})
 
 const icons: Record<string, IconData> = {
   github: {
@@ -32,33 +41,7 @@ const icons: Record<string, IconData> = {
   }
 }
 
-export default Vue.extend({
-  name: 'SocialIcon',
-  props: {
-    icon: {
-      type: String,
-      required: true,
-      validator: (value: string) => Object.keys(icons).includes(value)
-    },
-    size: {
-      type: String,
-      default: 'h-8 w-8'
-    },
-    color: {
-      type: String,
-      default: 'text-blue-900'
-    }
-  },
-  computed: {
-    iconClass(): string {
-      return `mx-auto ${this.size} fill-current ${this.color}`
-    },
-    viewBox(): string {
-      return icons[this.icon].viewBox
-    },
-    iconPath(): string {
-      return icons[this.icon].path
-    }
-  }
-})
+const iconClass = computed(() => `mx-auto ${props.size} fill-current ${props.color}`)
+const viewBox = computed(() => icons[props.icon].viewBox)
+const iconPath = computed(() => icons[props.icon].path)
 </script>
